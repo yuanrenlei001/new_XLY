@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>判断浏览器是否支持localStorage</title>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+<script>
+    function isLocalStorage() {
+        var testKey = 'test',
+            storage = window.localStorage;
+        try {
+            storage.setItem(testKey, 'testValue');
+            storage.removeItem(testKey);
+            return true;
+        } catch (error) {
+            return false;
+        }
+    }
+
+    if(isLocalStorage()){
+        localStorage.test = "支持";
+    }
+
+    var test;
+
+    if(window.localStorage){
+        if(localStorage.test){
+            test = localStorage.test;
+        }
+        else{
+            test = "不支持";
+        }
+    }
+
+    document.write(test);
+</script>
+</body>
+</html>
